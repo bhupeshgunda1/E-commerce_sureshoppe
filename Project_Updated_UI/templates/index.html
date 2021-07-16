@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+
+    <title>SureShoppe</title>
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="static/fontawesome.css">
+    <link rel="stylesheet" href="static/templatemo-sixteen.css">
+    <link rel="stylesheet" href="static/owl.css">
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="preloader">
+        <div class="jumper">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>  
+    <!-- ***** Preloader End ***** -->
+
+    <!-- Header -->
+    <header class="position-fixed">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="{{ url_for('home')}}"><h2>Sure <em>Shoppe</em></h2></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="float-right">
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav">
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('home')}}">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('products')}}">Our Products</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('about')}}">About us</a>
+          </li>
+              <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('contactus')}}">Contact us</a>
+          </li>
+              <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('login')}}">Login</a>
+          </li>
+              <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('register')}}">Register</a>
+          </li>
+         </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Page Content -->
+    <!-- Banner Starts Here -->
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="static/slide_01.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Best Offer</h5>
+        <h5>New Arrivals On Sale</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="static/slide_02.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Flash Deals</h5>
+        <h5>Get your best products</h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="static/slide_03.jpg" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Last Minute</h5>
+        <h5>Grab last minute dealsSS</h5>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    <!-- Banner Ends Here -->
+
+    <div class="latest-products">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>Latest Products</h2>
+              <a href="products.html">view all products <i class="fa fa-angle-right"></i></a>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="static/product_01.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$25.75</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (24)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="static/product_02.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$30.25</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (21)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="static/product_03.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$20.45</h6>
+                <p>Sixteen Clothing is free CSS template provided by TemplateMo.</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (36)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="static/product_04.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$15.25</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (48)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="static/product_05.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$12.50</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (16)</span>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="product-item">
+              <a href="#"><img src="static/product_06.jpg" alt=""></a>
+              <div class="down-content">
+                <a href="#"><h4>Tittle goes here</h4></a>
+                <h6>$22.50</h6>
+                <p>Lorem ipsume dolor sit amet, adipisicing elite. Itaque, corporis nulla aspernatur.</p>
+                <ul class="stars">
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                  <li><i class="fa fa-star"></i></li>
+                </ul>
+                <span>Reviews (32)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="best-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="section-heading">
+              <h2>About Sixteen Clothing</h2>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="left-content">
+              <h4>Looking for the best products?</h4>
+              <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p>
+              <ul class="featured-list">
+                <li><a href="#">Lorem ipsum dolor sit amet</a></li>
+                <li><a href="#">Consectetur an adipisicing elit</a></li>
+                <li><a href="#">It aquecorporis nulla aspernatur</a></li>
+                <li><a href="#">Corporis, omnis doloremque</a></li>
+                <li><a href="#">Non cum id reprehenderit</a></li>
+              </ul>
+              <a href="about.html" class="filled-button">Read More</a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="right-image">
+              <img src="static/feature-image.jpg" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="call-to-action">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <div class="row">
+                <div class="col-md-8">
+                  <h4>Creative &amp; Unique <em>Sixteen</em> Products</h4>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque corporis amet elite author nulla.</p>
+                </div>
+                <div class="col-md-4">
+                  <a href="#" class="filled-button">Purchase Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="inner-content">
+              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+            
+            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+    <!-- Bootstrap core JavaScript -->
+    <script src="static/jquery.min.js"></script>
+    <script src="static/bootstrap.bundle.min.js"></script>
+
+
+    <!-- Additional Scripts -->
+    <script src="static/custom.js"></script>
+    <script src="static/owl.js"></script>
+    <script src="static/slick.js"></script>
+    <script src="static/isotope.js"></script>
+    <script src="static/accordions.js"></script>
+
+
+    <script language = "text/Javascript"> 
+      cleared[0] = cleared[1] = cleared[2] = 0; //set a cleared flag for each field
+      function clearField(t){                   //declaring the array outside of the
+      if(! cleared[t.id]){                      // function makes it static and global
+          cleared[t.id] = 1;  // you could use true and false, but that's more typing
+          t.value='';         // with more chance of typos
+          t.style.color='#fff';
+          }
+      }
+    </script>
+
+
+  </body>
+
+</html>

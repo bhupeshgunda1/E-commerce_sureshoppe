@@ -1,0 +1,121 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+/*body styling*/
+body{
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: sans-serif;
+  height: 100vh;
+  width: 100%;
+}
+
+/*header background styling*/
+header{
+background-color: aqua;
+}
+div img{
+  padding: 10px;
+  height: 150px;
+  width: 150px;
+  float: left;
+}
+div h1{
+  font-size: xx-large;
+}
+
+/*menubar styling*/
+.menubar{
+  background-color: rgb(134, 193, 221);
+  width: 1400px;
+  text-align: center;
+  margin: auto;
+  position: fixed;
+  overflow: hidden;
+}
+.menubar ul{
+  display: inline-flex;
+  list-style-type: none;
+}
+.menubar ul li{
+width: 120px;
+margin: 15px;
+padding: 15px;    
+}
+.search, .menubar ul li a{
+  text-decoration: none;
+  color: rgb(5, 5, 5);    
+  font-size: 20px;
+  font-family: poppins;
+}
+.menubar ul li:hover{
+  background-color: rgb(26, 117, 202);
+  border-radius: 10px;
+}
+
+/*content class styling*/
+.content{
+  background: linear-gradient(rgb(25, 187, 241), black);
+  width: auto;
+  text-align: center;
+}
+.content p{
+  color: white;
+  font-size: 16px;
+  font-family: Verdana;
+}
+
+
+/* Footer section */
+.footer {
+  width: 100%;
+  background-color: black;
+}
+.footer .col {
+  float: left;
+  width: 300px;
+  box-sizing: border-box;
+  padding: 0px 20px 20px 20px;
+}
+.footer .col h1 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+  line-height: 17px;
+  padding: 20px 0px 5px 0px;
+  color: rgba(255,255,255,0.2);
+  font-weight: normal;
+}
+.footer .col img{
+    width: 160px;
+    height: 100px;
+}
+.footer .col ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.footer .col ul li {
+  color: #999999;
+  font-size: 14px;
+  font-family: inherit;  
+  padding: 5px 0px 5px 0px;
+  cursor: pointer;
+  transition: .2s;
+  -webkit-transition: .2s;
+  -moz-transition: .2s;
+}
+ .footer .col ul li:hover {
+  color: #ffffff;
+  transition: .1s;
+  -webkit-transition: .1s;
+  -moz-transition: .1s;
+}
+
+.clearfix {
+  clear: both;
+}

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>SureShoppe Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" type="text/css" href="static/login.css">
+    </head>
+    <body>
+        <div class="login">
+<!--            <img src="static/Logo.png" alt="Logo"><br>-->
+            <h1>SureShoppe Login</h1>
+            <form method="post">
+                <input type="text" name="email" placeholder="Email" required="required" />
+                <input type="password" name="password" placeholder="Password" required="required" />
+                <button type="submit" class="btn btn-primary btn-block btn-large">Login</button><br>
+                <label> Don't have an account?  &nbsp; &nbsp; <a href="{{url_for('register')}}">Register here</a></label>
+            </form>
+        </div>
+    </body>
+</html>

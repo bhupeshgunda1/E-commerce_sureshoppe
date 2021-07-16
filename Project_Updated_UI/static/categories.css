@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap');
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color: white; 
+}
+body{
+  background: url("../images/bg9.jpg");
+}
+img {
+  	border: 1px solid grey;
+  	border-radius: 4px;
+  	padding: 5px;
+  	width: 700px;
+  	display: block;
+  	margin-left: auto;
+  	margin-right: auto;
+}
+p{
+	font-size: 80px;
+	font-family: Arizonia;
+	padding-left: 150px;
+	padding-right: 150px;
+}
