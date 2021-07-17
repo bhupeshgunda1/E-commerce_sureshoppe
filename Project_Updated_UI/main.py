@@ -10,7 +10,6 @@ app = Flask(__name__)
 @app.route("/home")
 @app.route("/index")
 def home():
-
     return render_template("index.html")
 
 
@@ -28,10 +27,24 @@ def products():
 def categories():
     return render_template("Categories.html")
 
-
 @app.route("/contactus")
 def contactus():
     return render_template("contact.html")
+
+@app.route("/contactus_data", methods=['POST'])
+def contactus_data():
+    fullName = request.form.get('fullName')
+    customer_email = request.form.get('customer_email')
+    subject = request.form.get('subject')
+    message = request.form.get('message')
+    connection_string = "mongodb+srv://Bhupesh:1234@cluster0.7at15.mongodb.net/eCommerce_Project?retryWrites=true&w" \
+                        "=majority"
+    my_client = pymongo.MongoClient(connection_string)
+    dblist = my_client.list_database_names()
+    db = my_client["eCommerce_Project"]  # database
+    coll = db["queries"]  # collection
+    coll.insert({'fullName': fullName, 'customer_email': customer_email, 'subject': subject, 'message': message})
+    return redirect(url_for('home'))
 
 
 @app.route("/login")
@@ -93,6 +106,7 @@ def register_data():
                  'confirm_password': confirm_password, 'street': street, 'landmark': landmark, 'zip': zip, 'city': city,
                  'country': country, 'email': email})
     return redirect(url_for('login'))
+
 
 
 # Connect to MongoDB
