@@ -31,7 +31,7 @@ def categories():
 def contactus():
     return render_template("contact.html")
 
-@app.route("/contactus_data", methods=['POST'])
+@app.route("/contactus", methods=['POST'])
 def contactus_data():
     fullName = request.form.get('fullName')
     customer_email = request.form.get('customer_email')
