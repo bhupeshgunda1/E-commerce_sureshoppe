@@ -46,7 +46,6 @@ def contactus_data():
     coll.insert({'fullName': fullName, 'customer_email': customer_email, 'subject': subject, 'message': message})
     return redirect(url_for('home'))
 
-
 @app.route("/login")
 def login():
     return render_template("login.html")
