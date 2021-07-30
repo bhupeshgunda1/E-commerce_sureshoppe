@@ -65,10 +65,11 @@
 				{% if not loggedIn  %}
 					<li class="nav-item">
                       <a class="nav-link" href="{{ url_for('login') }}" style="text-decoration: none">Login</a></li>
+                    <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('register')}}">Register</a>
+                  </li>
 				{% endif %}
-              <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('register')}}">Register</a>
-          </li>
+
               <li class="nav-item">
           <a class="nav-link" href="{{ url_for('cart')}}">Cart</a>
           </li>
