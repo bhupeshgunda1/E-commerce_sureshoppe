@@ -61,6 +61,9 @@
                     <li>
                       <a class="nav-link" href="{{ url_for('logout') }}" style="text-decoration: none">Logout</a>
                     </li>
+                    <li class="nav-item">
+                  <a class="nav-link" href="{{ url_for('cart')}}">Cart</a>
+                  </li>
 				{% endif %}
 				{% if not loggedIn  %}
 					<li class="nav-item">
@@ -69,10 +72,6 @@
                   <a class="nav-link" href="{{ url_for('register')}}">Register</a>
                   </li>
 				{% endif %}
-
-              <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('cart')}}">Cart</a>
-          </li>
          </ul>
             </div>
           </div>
