@@ -6,6 +6,8 @@ import db
 app = Flask(__name__)
 app.secret_key = "super secret key"
 
+global name
+
 
 @app.route("/")
 @app.route("/home")
@@ -21,16 +23,18 @@ def about():
 
 @app.route("/products")
 def products():
-    return render_template("products.html")
+    return render_template("products.html", loggedIn=True)
 
 
 @app.route("/categories")
 def categories():
     return render_template("Categories.html")
 
+
 @app.route("/contactus")
 def contactus():
     return render_template("contact.html")
+
 
 @app.route("/contactus", methods=['POST'])
 def contactus_data():
@@ -47,6 +51,7 @@ def contactus_data():
     coll.insert({'fullName': fullName, 'customer_email': customer_email, 'subject': subject, 'message': message})
     return redirect(url_for('home'))
 
+
 @app.route("/login")
 def login():
     return render_template("login.html")
@@ -56,9 +61,11 @@ def login():
 def register():
     return render_template("register.html")
 
+
 @app.route("/cart")
 def cart():
     return render_template("cart.html")
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login_data():
@@ -92,10 +99,12 @@ def login_data():
             return render_template('login.html', msg=msg)
     return render_template("login.html")
 
+
 @app.route('/logout')
 def logout():
-   session.pop('email', None)
-   return render_template("index.html")
+    session.pop('email', None)
+    return render_template("index.html")
+
 
 @app.route("/registerdata", methods=['POST'])
 def register_data():
@@ -124,7 +133,6 @@ def register_data():
                  'confirm_password': confirm_password, 'street': street, 'landmark': landmark, 'zip': zip, 'city': city,
                  'country': country, 'email': email})
     return redirect(url_for('login'))
-
 
 
 # Connect to MongoDB
