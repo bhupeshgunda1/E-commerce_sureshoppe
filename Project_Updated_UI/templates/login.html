@@ -5,10 +5,19 @@
         <title>SureShoppe Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="static/login.css">
+        <link rel="stylesheet" href="static/fontawesome.css">
+        <link rel="stylesheet" href="static/templatemo-sixteen.css">
+        <link rel="stylesheet" href="static/owl.css">
     </head>
+
     <body>
+        <div class="form-container sign-in-container">
+		{% if msg  %}
+		<div class="alert alert-secondary" role="alert">
+			<p class="msg">{{ msg }}</p>
+		</div>
+		{% endif %}
         <div class="login">
-<!--            <img src="static/Logo.png" alt="Logo"><br>-->
             <h1>SureShoppe Login</h1>
             <form method="post">
                 <input type="text" name="email" placeholder="Email" required="required" />

@@ -4,6 +4,7 @@ from flask import Flask, render_template, request, redirect, url_for, session
 import db
 
 app = Flask(__name__)
+app.secret_key = "super secret key"
 
 
 @app.route("/")
@@ -69,14 +70,32 @@ def login_data():
     dblist = my_client.list_database_names()
     db = my_client["eCommerce_Project"]  # database
     coll = db["users"]  # collection
-    # email_found = coll.find({"email": email})  # fetches one document
-    user_found = coll.find({"email": email, "password": password})  # fetches
-    length = user_found.count()
-    if length == 0:
-        return "<h1> login Failed, Please Try Again </h1>"
-    else:
-        return redirect(url_for('home'))
 
+    if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
+        email = request.form.get("email")
+        password = request.form.get("password")
+
+        custTable = db["users"]
+        user_found = custTable.find_one({"email": email})
+        if user_found:
+            email_val = user_found['email']
+            password_val = user_found['password']
+            if password == password_val:
+                session["email"] = email_val
+                name = user_found['first_name']
+                return render_template("index.html", loggedIn=True, name=name)
+            else:
+                msg = 'Wrong password'
+                return render_template('login.html', msg=msg)
+        else:
+            msg = 'Invalid Credentials'
+            return render_template('login.html', msg=msg)
+    return render_template("login.html")
+
+@app.route('/logout')
+def logout():
+   session.pop('email', None)
+   return render_template("index.html")
 
 @app.route("/registerdata", methods=['POST'])
 def register_data():
@@ -138,3 +157,4 @@ def recordReport():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    app.run(host='localhost', port=5000)

@@ -54,13 +54,22 @@
               <li class="nav-item">
           <a class="nav-link" href="{{ url_for('contactus')}}">Contact us</a>
           </li>
-              <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('login')}}">Login</a>
-          </li>
+              {% if loggedIn  %}
+					<li class="nav-item">
+                      <a class="nav-link" href="#" style="text-decoration: none">Hi, {{ name }}</a>
+                    </li>
+                    <li>
+                      <a class="nav-link" href="{{ url_for('logout') }}" style="text-decoration: none">Logout</a>
+                    </li>
+				{% endif %}
+				{% if not loggedIn  %}
+					<li class="nav-item">
+                      <a class="nav-link" href="{{ url_for('login') }}" style="text-decoration: none">Login</a></li>
+				{% endif %}
               <li class="nav-item">
           <a class="nav-link" href="{{ url_for('register')}}">Register</a>
           </li>
-              li class="nav-item">
+              <li class="nav-item">
           <a class="nav-link" href="{{ url_for('cart')}}">Cart</a>
           </li>
          </ul>
