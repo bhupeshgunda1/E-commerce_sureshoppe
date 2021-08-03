@@ -6,34 +6,31 @@ import db
 app = Flask(__name__)
 app.secret_key = "super secret key"
 
-global name
-
-
 @app.route("/")
 @app.route("/home")
 @app.route("/index")
 def home():
-    return render_template("index.html")
+    return render_template("index.html",loggedIn=session['loggedIn'], name=session['name'])
 
 
 @app.route("/about")
 def about():
-    return render_template("about.html")
+    if not session['loggedIn']:
+        return render_template("login.html")
+    return render_template("about.html",loggedIn=session['loggedIn'], name=session['name'])
 
 
 @app.route("/products")
 def products():
-    return render_template("products.html", loggedIn=True)
-
-
-@app.route("/categories")
-def categories():
-    return render_template("Categories.html")
-
+    if not session['loggedIn']:
+        return render_template("login.html")
+    return render_template("products.html", loggedIn=session['loggedIn'], name=session['name'])
 
 @app.route("/contactus")
 def contactus():
-    return render_template("contact.html")
+    if not session['loggedIn']:
+        return render_template("login.html")
+    return render_template("contact.html",loggedIn=session['loggedIn'], name=session['name'])
 
 
 @app.route("/contactus", methods=['POST'])
@@ -64,7 +61,9 @@ def register():
 
 @app.route("/cart")
 def cart():
-    return render_template("cart.html")
+    if not session['loggedIn']:
+        return render_template("login.html")
+    return render_template("cart.html",loggedIn=session['loggedIn'], name=session['name'])
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -75,7 +74,7 @@ def login_data():
                         "=majority"
     my_client = pymongo.MongoClient(connection_string)
     dblist = my_client.list_database_names()
-    db = my_client["eCommerce_Project"]  # database
+    db = my_client["eCommerce_Project"] 
     coll = db["users"]  # collection
 
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
@@ -90,19 +89,26 @@ def login_data():
             if password == password_val:
                 session["email"] = email_val
                 name = user_found['first_name']
+                session["name"] = name
+                session['loggedIn'] = True
                 return render_template("index.html", loggedIn=True, name=name)
             else:
                 msg = 'Wrong password'
+                session["name"] = None
+                session['loggedIn'] = False
                 return render_template('login.html', msg=msg)
         else:
             msg = 'Invalid Credentials'
-            return render_template('login.html', msg=msg)
-    return render_template("login.html")
+            return render_template('login.html', loggedIn=False, msg=msg)
+    return render_template("login.html",loggedIn=False)
 
 
 @app.route('/logout')
 def logout():
-    session.pop('email', None)
+    if session.get("name"):
+        session['name'] = None
+        session['loggedIn'] = False
+        return redirect("/")
     return render_template("index.html")
 
 
