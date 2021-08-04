@@ -140,7 +140,7 @@ def register_data():
     return redirect(url_for('login'))
 
 
-# Connect to MongoDB
+# Connect to MongoDB server
 def connect_to_mongoDB():
     # connecting to DB
     connection_string = "mongodb+srv://Bhupesh:1234@cluster0.7at15.mongodb.net/eCommerce_Project?retryWrites=true&w" \
