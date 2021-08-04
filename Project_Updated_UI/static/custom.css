@@ -1,0 +1,7 @@
+.navbar>.container, .navbar>.container-fluid {
+    display: block !important;
+}
+
+.navbar .navbar-brand {
+    margin-top: 4px !important;
+}
