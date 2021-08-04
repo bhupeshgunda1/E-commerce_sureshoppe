@@ -10,15 +10,16 @@ app.secret_key = "super secret key"
 @app.route("/home")
 @app.route("/index")
 def home():
-    return render_template("index.html",loggedIn=session['loggedIn'], name=session['name'])
-
+    try:
+        return render_template("index.html",loggedIn=session['loggedIn'], name=session['name'])
+    except KeyError:
+        return render_template("index.html")
 
 @app.route("/about")
 def about():
     if not session['loggedIn']:
         return render_template("login.html")
     return render_template("about.html",loggedIn=session['loggedIn'], name=session['name'])
-
 
 @app.route("/products")
 def products():
@@ -47,7 +48,6 @@ def contactus_data():
     coll = db["queries"]  # collection
     coll.insert({'fullName': fullName, 'customer_email': customer_email, 'subject': subject, 'message': message})
     return redirect(url_for('home'))
-
 
 @app.route("/login")
 def login():
@@ -101,7 +101,6 @@ def login_data():
             msg = 'Invalid Credentials'
             return render_template('login.html', loggedIn=False, msg=msg)
     return render_template("login.html",loggedIn=False)
-
 
 @app.route('/logout')
 def logout():
@@ -171,4 +170,5 @@ def recordReport():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    app.run(host='localhost', port=5000)
+
+
