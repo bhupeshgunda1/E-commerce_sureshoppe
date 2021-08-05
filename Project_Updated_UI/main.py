@@ -6,32 +6,36 @@ import db
 app = Flask(__name__)
 app.secret_key = "super secret key"
 
+
 @app.route("/")
 @app.route("/home")
 @app.route("/index")
 def home():
     try:
-        return render_template("index.html",loggedIn=session['loggedIn'], name=session['name'])
+        return render_template("index.html", loggedIn=session['loggedIn'], name=session['name'])
     except KeyError:
         return render_template("index.html")
+
 
 @app.route("/about")
 def about():
     if not session['loggedIn']:
         return render_template("login.html")
-    return render_template("about.html",loggedIn=session['loggedIn'], name=session['name'])
+    return render_template("about.html", loggedIn=session['loggedIn'], name=session['name'])
+
 
 @app.route("/products")
 def products():
-    if not session['loggedIn']:
-        return render_template("login.html")
-    return render_template("products.html", loggedIn=session['loggedIn'], name=session['name'])
+    try:
+        return render_template("products.html", loggedIn=session['loggedIn'], name=session['name'])
+    except KeyError:
+        return render_template("products.html")
 
 @app.route("/contactus")
 def contactus():
     if not session['loggedIn']:
         return render_template("login.html")
-    return render_template("contact.html",loggedIn=session['loggedIn'], name=session['name'])
+    return render_template("contact.html", loggedIn=session['loggedIn'], name=session['name'])
 
 
 @app.route("/contactus", methods=['POST'])
@@ -49,6 +53,7 @@ def contactus_data():
     coll.insert({'fullName': fullName, 'customer_email': customer_email, 'subject': subject, 'message': message})
     return redirect(url_for('home'))
 
+
 @app.route("/login")
 def login():
     return render_template("login.html")
@@ -63,7 +68,7 @@ def register():
 def cart():
     if not session['loggedIn']:
         return render_template("login.html")
-    return render_template("cart.html",loggedIn=session['loggedIn'], name=session['name'])
+    return render_template("cart.html", loggedIn=session['loggedIn'], name=session['name'])
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -74,7 +79,7 @@ def login_data():
                         "=majority"
     my_client = pymongo.MongoClient(connection_string)
     dblist = my_client.list_database_names()
-    db = my_client["eCommerce_Project"] 
+    db = my_client["eCommerce_Project"]
     coll = db["users"]  # collection
 
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
@@ -100,7 +105,8 @@ def login_data():
         else:
             msg = 'Invalid Credentials'
             return render_template('login.html', loggedIn=False, msg=msg)
-    return render_template("login.html",loggedIn=False)
+    return render_template("login.html", loggedIn=False)
+
 
 @app.route('/logout')
 def logout():
@@ -170,5 +176,3 @@ def recordReport():
 
 if __name__ == '__main__':
     app.run(debug=True)
-
-
